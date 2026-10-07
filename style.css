@@ -1,0 +1,1027 @@
+/* =========================================================
+   Ahmed Sayem — Portfolio
+   色: 藍 (indigo navy) + 桜 (sakura pink)
+   ========================================================= */
+
+/* ---------- 色とフォントの設定 (Design tokens) ---------- */
+:root {
+    --kon: #0F1A2E;
+    /* 紺 deep navy — hero / contact */
+    --ai: #1E3157;
+    /* 藍 indigo */
+    --sakura: #E98AA3;
+    /* 桜 accent */
+    --sakura-ink: #B5476A;
+    /* darker pink for text on light bg */
+    --sakura-pale: #FBE6EC;
+
+    --bg: #F5F6F9;
+    /* cool washi white */
+    --bg-tint: #ECEFF5;
+    --surface: #FFFFFF;
+    --text: #18213A;
+    --muted: #5A6380;
+    --line: #D9DEEA;
+
+    --on-dark: #EEF1F8;
+    --on-dark-muted: #A7B0C8;
+
+    --mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --gothic: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+
+    --wrap: 1120px;
+    --r-sm: 6px;
+    --r-lg: 14px;
+    color-scheme: light;
+}
+
+/* ダークモード (Dark mode) — system setting */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #0C1424;
+        --bg-tint: #111B30;
+        --surface: #16223B;
+        --text: #E8ECF5;
+        --muted: #A1AAC2;
+        --line: #263453;
+        --sakura-ink: #F2A3B8;
+        --sakura-pale: #2A2340;
+        color-scheme: dark;
+    }
+}
+
+/* ダークモード — button */
+:root[data-theme="dark"] {
+    --bg: #0C1424;
+    --bg-tint: #111B30;
+    --surface: #16223B;
+    --text: #E8ECF5;
+    --muted: #A1AAC2;
+    --line: #263453;
+    --sakura-ink: #F2A3B8;
+    --sakura-pale: #2A2340;
+    color-scheme: dark;
+}
+
+/* ---------- 言語切替 (Language switch) ---------- */
+html[data-lang="ja"] [lang="en"] {
+    display: none !important;
+}
+
+html[data-lang="en"] [lang="ja"] {
+    display: none !important;
+}
+
+/* ---------- 基本 (Base) ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--gothic);
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+html[data-lang="en"] body {
+    line-height: 1.65;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+:focus-visible {
+    outline: 2px solid var(--sakura);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.skip {
+    position: absolute;
+    left: 16px;
+    top: -60px;
+    z-index: 100;
+    background: var(--sakura);
+    color: var(--kon);
+    padding: 8px 14px;
+    border-radius: var(--r-sm);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.skip:focus {
+    top: 12px;
+}
+
+.wrap {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.h2 {
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    line-height: 1.3;
+    letter-spacing: .02em;
+    margin: 0 0 1.2em;
+    display: flex;
+    align-items: center;
+    gap: .55em;
+}
+
+/* 見出しの横の小さな桜の花びら */
+.h2::before {
+    content: "";
+    width: .5em;
+    height: .5em;
+    flex: none;
+    background: var(--sakura);
+    border-radius: 0 60% 0 60%;
+    transform: rotate(45deg);
+}
+
+.h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.55;
+    margin: 0 0 .35em;
+}
+
+.section {
+    padding: clamp(80px, 11vw, 140px) 0;
+}
+
+.section--tint {
+    background: var(--bg-tint);
+}
+
+.section__intro {
+    color: var(--muted);
+    margin: -1.4em 0 2.6em;
+    max-width: 60ch;
+}
+
+/* ---------- ボタン (Buttons) ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 26px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .98rem;
+    text-decoration: none;
+    transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn--primary {
+    background: var(--sakura);
+    color: var(--kon);
+}
+
+.btn--primary:hover {
+    background: #F3A6BA;
+}
+
+.btn--ghost {
+    border: 1.5px solid rgba(238, 241, 248, .35);
+    color: var(--on-dark);
+}
+
+.btn--ghost:hover {
+    border-color: var(--sakura);
+    color: var(--sakura);
+}
+
+/* ---------- ナビ (Navigation) ---------- */
+.nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    height: 68px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--on-dark);
+    transition: background-color .3s ease, color .3s ease, box-shadow .3s ease;
+}
+
+.nav.is-solid {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    color: var(--text);
+    box-shadow: 0 1px 0 var(--line);
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.nav__mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: 1.1rem;
+    background: var(--sakura);
+    color: var(--kon);
+    border-radius: 50%;
+}
+
+.nav__name {
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+.nav__links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav__links a {
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+}
+
+.nav__links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--sakura);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+}
+
+.nav__links a:hover::after,
+.nav__links a.is-active::after {
+    transform: scaleX(1);
+}
+
+.nav__tools {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tool {
+    height: 38px;
+    min-width: 38px;
+    padding: 0 10px;
+    display: inline-grid;
+    place-items: center;
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    border-color: color-mix(in srgb, currentColor 30%, transparent);
+    border-radius: 999px;
+    cursor: pointer;
+    font: 700 .82rem var(--gothic);
+}
+
+.tool:hover {
+    border-color: var(--sakura);
+}
+
+.tool svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.i-moon {
+    fill: currentColor !important;
+    stroke: none !important;
+}
+
+.i-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .i-sun {
+    display: block;
+}
+
+:root[data-theme="dark"] .i-moon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .i-sun {
+        display: block;
+    }
+
+    :root:not([data-theme="light"]) .i-moon {
+        display: none;
+    }
+}
+
+.nav__menu {
+    display: none;
+}
+
+/* ---------- ヒーロー (Hero) ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(1100px 600px at 85% 15%, rgba(233, 138, 163, .16), transparent 60%),
+        linear-gradient(160deg, var(--ai) 0%, var(--kon) 62%);
+    color: var(--on-dark);
+    padding: 110px 0 80px;
+}
+
+.hero__petals {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero__inner {
+    position: relative;
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(32px, 7vw, 110px);
+    align-items: center;
+}
+
+/* 縦書きの名前 — the memorable part */
+.hero__tate {
+    margin: 0;
+    writing-mode: vertical-rl;
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: clamp(3.4rem, 7.4vw, 6.6rem);
+    line-height: 1.05;
+    letter-spacing: .1em;
+    display: flex;
+    flex-direction: column;
+    gap: .15em;
+    color: var(--on-dark);
+}
+
+.hero__tate span:last-child {
+    color: var(--sakura);
+    padding-top: 1.4em;
+}
+
+.hero__tate span {
+    opacity: 0;
+    animation: brush 1.1s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.hero__tate span:last-child {
+    animation-delay: .25s;
+}
+
+@keyframes brush {
+    from {
+        opacity: 0;
+        clip-path: inset(-20% -20% 100% -20%);
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(-20% -20% -20% -20%);
+        transform: none;
+    }
+}
+
+.hero__body {
+    max-width: 560px;
+}
+
+.hero__latin {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: .04em;
+    margin: 0 0 .5em;
+}
+
+.hero__role {
+    display: inline-block;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: var(--sakura);
+    margin-bottom: 1.4em;
+    min-height: 1.6em;
+}
+
+.hero__lead {
+    color: var(--on-dark-muted);
+    max-width: 46ch;
+    margin-bottom: 2.2em;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ---------- 自己紹介 (About) ---------- */
+.about {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(36px, 6vw, 88px);
+    align-items: start;
+}
+
+.about__photo {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: linear-gradient(150deg, var(--ai), var(--kon));
+}
+
+.about__photo::after {
+    /* 桜色のずらし枠 */
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+}
+
+.about__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.about__initials {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: 5rem;
+    color: var(--sakura);
+    letter-spacing: .05em;
+}
+
+.about__text>div[lang] p {
+    max-width: 62ch;
+}
+
+.facts {
+    margin: 2.4em 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--line);
+}
+
+.facts div {
+    padding: 18px 16px 0 0;
+}
+
+.facts dt {
+    font-size: .82rem;
+    color: var(--muted);
+    margin-bottom: 2px;
+}
+
+.facts dd {
+    margin: 0;
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* ---------- スキル (Skills) ---------- */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px 56px;
+}
+
+.skills__group .h3 {
+    color: var(--muted);
+    font-weight: 500;
+    font-size: .92rem;
+    margin-bottom: 14px;
+}
+
+.chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chips li {
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    font-weight: 700;
+    font-size: .95rem;
+    line-height: 1.4;
+}
+
+.chips small {
+    font-weight: 500;
+    font-size: .74rem;
+    color: var(--sakura-ink);
+    margin-left: 6px;
+}
+
+/* ---------- 制作実績 (Work) ---------- */
+.work {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.project {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.project--feature {
+    grid-column: 1 / -1;
+    flex-direction: row;
+}
+
+.project--feature .project__art {
+    flex: 0 0 44%;
+    aspect-ratio: auto;
+    min-height: 300px;
+}
+
+.project--feature .project__body {
+    padding: clamp(28px, 4vw, 52px);
+    align-self: center;
+}
+
+.project--feature .project__title {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.project__art {
+    aspect-ratio: 16 / 10;
+    display: grid;
+    place-items: center;
+    background: var(--sakura-pale);
+}
+
+.project__art svg {
+    width: 34%;
+    max-width: 120px;
+    fill: var(--sakura);
+    stroke: var(--sakura);
+}
+
+.project__art--hospital {
+    background: linear-gradient(150deg, var(--ai), var(--kon));
+}
+
+.project__art--hospital svg {
+    fill: var(--sakura);
+}
+
+.project__art--cafe svg path:first-child {
+    stroke: none;
+}
+
+.project__art--school {
+    background: var(--bg-tint);
+}
+
+.project__art .hole {
+    fill: var(--sakura-pale);
+    stroke: none;
+}
+
+.project__body {
+    padding: 26px 26px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project__title {
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 0 0 .5em;
+}
+
+.project__body p {
+    color: var(--muted);
+    font-size: .97rem;
+}
+
+.tags {
+    list-style: none;
+    padding: 0;
+    margin: 1.1em 0 1.4em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tags li {
+    font-size: .78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: var(--bg-tint);
+    color: var(--muted);
+}
+
+.project__links {
+    margin-top: auto;
+    display: flex;
+    gap: 18px;
+}
+
+.project__links a,
+.more {
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--sakura-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+}
+
+.project__links a:hover,
+.more:hover {
+    text-decoration-color: var(--sakura);
+}
+
+.more {
+    display: inline-block;
+    margin-top: 36px;
+}
+
+/* ---------- 経歴 (Timeline) ---------- */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 820px;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 140px;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background: var(--line);
+}
+
+.timeline__item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 36px;
+    padding: 0 0 36px;
+    position: relative;
+}
+
+.timeline__item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline__item::before {
+    content: "";
+    position: absolute;
+    left: 135px;
+    top: 9px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg-tint);
+    border: 2px solid var(--muted);
+}
+
+.timeline__item--now::before {
+    background: var(--sakura);
+    border-color: var(--sakura);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--sakura) 22%, transparent);
+}
+
+.timeline time {
+    font-family: var(--mincho);
+    font-weight: 700;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.timeline p {
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+/* ---------- 連絡先 (Contact) ---------- */
+.contact {
+    background:
+        radial-gradient(800px 420px at 10% 100%, rgba(233, 138, 163, .18), transparent 60%),
+        var(--kon);
+    color: var(--on-dark);
+    padding: clamp(90px, 12vw, 150px) 0;
+}
+
+.contact__title {
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: clamp(2.1rem, 5.4vw, 4rem);
+    line-height: 1.3;
+    letter-spacing: .02em;
+    margin: 0 0 .6em;
+}
+
+.contact__text {
+    color: var(--on-dark-muted);
+    margin-bottom: 2em;
+}
+
+.contact__mail {
+    display: inline-block;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3.2vw, 1.7rem);
+    color: var(--sakura);
+    text-decoration: none;
+    word-break: break-all;
+    border-bottom: 2px solid rgba(233, 138, 163, .4);
+    padding-bottom: 4px;
+    transition: border-color .2s ease;
+}
+
+.contact__mail:hover {
+    border-color: var(--sakura);
+}
+
+.contact__links {
+    list-style: none;
+    padding: 0;
+    margin: 2.2em 0 0;
+    display: flex;
+    gap: 24px;
+}
+
+.contact__links a {
+    color: var(--on-dark);
+    font-weight: 700;
+    text-underline-offset: 5px;
+}
+
+.footer {
+    background: var(--kon);
+    color: var(--on-dark-muted);
+    text-align: center;
+    padding: 0 24px 32px;
+    font-size: .85rem;
+}
+
+.footer p {
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    padding-top: 24px;
+    max-width: var(--wrap);
+    margin: 0 auto;
+}
+
+/* ---------- スマホ・タブレット (Responsive) ---------- */
+@media (max-width: 960px) {
+    .work {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project--feature {
+        flex-direction: column;
+    }
+
+    .project--feature .project__art {
+        flex: none;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    .facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .nav {
+        padding: 0 16px;
+    }
+
+    .nav__menu {
+        display: inline-grid;
+        gap: 5px;
+        align-content: center;
+    }
+
+    .nav__menu span {
+        display: block;
+        width: 16px;
+        height: 1.5px;
+        background: currentColor;
+        transition: transform .25s ease;
+    }
+
+    .nav__menu[aria-expanded="true"] span:first-child {
+        transform: translateY(3.25px) rotate(45deg);
+    }
+
+    .nav__menu[aria-expanded="true"] span:last-child {
+        transform: translateY(-3.25px) rotate(-45deg);
+    }
+
+    .nav__links {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--bg);
+        color: var(--text);
+        border-bottom: 1px solid var(--line);
+        padding: 8px 16px 16px;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .2s ease, transform .2s ease, visibility .2s;
+    }
+
+    .nav__links.is-open {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav__links a {
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav__links a::after {
+        display: none;
+    }
+
+    .nav__name {
+        display: none;
+    }
+
+    .wrap,
+    .hero__inner {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 96px 0 64px;
+        align-items: flex-start;
+    }
+
+    .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hero__tate {
+        writing-mode: horizontal-tb;
+        flex-direction: column;
+        font-size: clamp(3rem, 15vw, 4.4rem);
+        letter-spacing: .04em;
+        gap: 0;
+    }
+
+    .hero__tate span:last-child {
+        padding-top: 0;
+        padding-left: 1.2em;
+    }
+
+    .hero__actions .btn {
+        flex: 1 1 100%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about__photo {
+        max-width: 320px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .work {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+        left: 5px;
+    }
+
+    .timeline__item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding-left: 30px;
+    }
+
+    .timeline__item::before {
+        left: 0;
+    }
+}
+
+/* 動きを減らす設定の人へ (Reduced motion) */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+    .hero__petals {
+        display: none;
+    }
+}
