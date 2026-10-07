@@ -1,349 +1,417 @@
 <!DOCTYPE html>
 <html lang="ja" data-lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アハメド サエム | Ahmed Sayem — Portfolio</title>
-  <meta name="description" content="流通科学大学 経済情報学科 システムコース3年。Web開発とC/C++を学ぶ、IT分野志望のアハメド サエムのポートフォリオ。">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アハメド サエム | Ahmed Sayem — Portfolio</title>
+    <meta name="description" content="流通科学大学 経済情報学科 システムコース3年。Web開発とC/C++を学ぶ、IT分野志望のアハメド サエムのポートフォリオ。">
 
-  <!-- フォント (Fonts) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- フォント (Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-  <!-- ページを開く前にテーマを決める (avoid a flash of the wrong theme) -->
-  <script>
-    try {
-      const t = localStorage.getItem('theme');
-      if (t) document.documentElement.dataset.theme = t;
-      const l = localStorage.getItem('lang');
-      if (l) { document.documentElement.dataset.lang = l; document.documentElement.lang = l; }
-    } catch (e) {}
-  </script>
+    <!-- ページを開く前にテーマを決める (avoid a flash of the wrong theme) -->
+    <script>
+        try {
+            const t = localStorage.getItem('theme');
+            if (t) document.documentElement.dataset.theme = t;
+            const l = localStorage.getItem('lang');
+            if (l) { document.documentElement.dataset.lang = l; document.documentElement.lang = l; }
+        } catch (e) { }
+    </script>
 </head>
+
 <body>
 
-  <a class="skip" href="#main">
-    <span lang="ja">本文へ移動</span><span lang="en">Skip to content</span>
-  </a>
-
-  <!-- ===================== ナビゲーション / NAVIGATION ===================== -->
-  <header class="nav" id="nav">
-    <a class="nav__logo" href="#top" aria-label="Home">
-      <span class="nav__mark">サ</span>
-      <span class="nav__name">Ahmed Sayem</span>
+    <a class="skip" href="#main">
+        <span lang="ja">本文へ移動</span><span lang="en">Skip to content</span>
     </a>
 
-    <nav class="nav__links" id="navLinks" aria-label="Main">
-      <a href="#about"><span lang="ja">自己紹介</span><span lang="en">About</span></a>
-      <a href="#skills"><span lang="ja">スキル</span><span lang="en">Skills</span></a>
-      <a href="#work"><span lang="ja">制作実績</span><span lang="en">Work</span></a>
-      <a href="#history"><span lang="ja">経歴</span><span lang="en">History</span></a>
-      <a href="#contact"><span lang="ja">連絡先</span><span lang="en">Contact</span></a>
-    </nav>
-
-    <div class="nav__tools">
-      <button class="tool" id="langBtn" type="button" aria-label="Switch language">
-        <span lang="ja">EN</span><span lang="en">日本語</span>
-      </button>
-      <button class="tool" id="themeBtn" type="button" aria-label="Toggle dark mode">
-        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
-      </button>
-      <button class="tool nav__menu" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main id="main">
-
-    <!-- ===================== ヒーロー / HERO ===================== -->
-    <section class="hero" id="top">
-      <canvas class="hero__petals" id="petals" aria-hidden="true"></canvas>
-
-      <div class="hero__inner">
-        <h1 class="hero__tate" aria-label="アハメド サエム">
-          <span>アハメド</span><span>サエム</span>
-        </h1>
-
-        <div class="hero__body">
-          <p class="hero__latin">Ahmed Sayem</p>
-          <p class="hero__role">
-            <span lang="ja">Web開発を学ぶ、IT分野志望の大学3年生</span>
-            <span lang="en">University student building for the web, heading into IT</span>
-          </p>
-          <p class="hero__lead">
-            <span lang="ja">バングラデシュから日本へ。流通科学大学でC言語・C++を学びながら、HTML・CSS・JavaScriptで実際に使えるWebサイトを作っています。</span>
-            <span lang="en">From Bangladesh to Kobe. I study C and C++ at the University of Marketing and Distribution Sciences, and build real websites with HTML, CSS and JavaScript.</span>
-          </p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="assets/cv/cv.pdf" download>
-              <span lang="ja">履歴書をダウンロード</span><span lang="en">Download CV</span>
-            </a>
-            <a class="btn btn--ghost" href="#work">
-              <span lang="ja">制作実績を見る</span><span lang="en">See my work</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 自己紹介 / ABOUT ===================== -->
-    <section class="section" id="about">
-      <div class="wrap about">
-        <figure class="about__photo">
-          <!-- 写真: assets/images/profile.jpg に置いてください -->
-          <img src="assets/images/profile.jpg" alt="Ahmed Sayem" width="480" height="600"
-               onerror="this.remove()">
-          <span class="about__initials" aria-hidden="true">AS</span>
-        </figure>
-
-        <div class="about__text">
-          <h2 class="h2">
-            <span lang="ja">自己紹介</span><span lang="en">About me</span>
-          </h2>
-
-          <div lang="ja">
-            <p>流通科学大学 経済学部 経済情報学科 システムコースの3年生です。ゼミではVisual Studioを使ったC言語・C++のプログラミングを学び、Web開発（HTML・CSS・JavaScript）は独学で続けています。</p>
-            <p>神戸国際言語学院で2年間日本語を学び、JLPT N2を取得しました。現在はコンビニでリーダーとして、シフト管理やスタッフ指導も担当しています。</p>
-            <p>プログラミングの基礎、日本語力、そしてチームをまとめる責任感を活かして、IT分野で貢献したいと考えています。</p>
-          </div>
-          <div lang="en">
-            <p>I’m a third-year student in the Systems Course of the Department of Economic Informatics at the University of Marketing and Distribution Sciences. In my seminar I program in C and C++ with Visual Studio, and I teach myself web development on the side.</p>
-            <p>I studied Japanese for two years at Kobe International Language School and passed JLPT N2. I now work as a shift leader at a convenience store, handling scheduling and training new staff.</p>
-            <p>I want to bring my programming foundation, my Japanese, and the responsibility I’ve learned as a leader to a team in IT.</p>
-          </div>
-
-          <dl class="facts">
-            <div>
-              <dt><span lang="ja">日本語</span><span lang="en">Japanese</span></dt>
-              <dd>JLPT N2</dd>
-            </div>
-            <div>
-              <dt><span lang="ja">英語</span><span lang="en">English</span></dt>
-              <dd>TOEIC 620</dd>
-            </div>
-            <div>
-              <dt><span lang="ja">母語</span><span lang="en">Native</span></dt>
-              <dd><span lang="ja">ベンガル語</span><span lang="en">Bengali</span></dd>
-            </div>
-            <div>
-              <dt><span lang="ja">拠点</span><span lang="en">Based in</span></dt>
-              <dd><span lang="ja">兵庫県</span><span lang="en">Hyogo, Japan</span></dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== スキル / SKILLS ===================== -->
-    <section class="section section--tint" id="skills">
-      <div class="wrap">
-        <h2 class="h2"><span lang="ja">スキル</span><span lang="en">Skills</span></h2>
-
-        <div class="skills">
-          <div class="skills__group">
-            <h3 class="h3"><span lang="ja">Web開発</span><span lang="en">Web</span></h3>
-            <ul class="chips">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript <small lang="ja">学習中</small><small lang="en">learning</small></li>
-              <li>TypeScript <small lang="ja">学習中</small><small lang="en">learning</small></li>
-              <li><span lang="ja">レスポンシブデザイン</span><span lang="en">Responsive design</span></li>
-            </ul>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="h3"><span lang="ja">プログラミング</span><span lang="en">Programming</span></h3>
-            <ul class="chips">
-              <li><span lang="ja">C言語</span><span lang="en">C</span></li>
-              <li>C++</li>
-            </ul>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="h3"><span lang="ja">ツール</span><span lang="en">Tools</span></h3>
-            <ul class="chips">
-              <li>Visual Studio</li>
-              <li>VS Code</li>
-              <li>Git / GitHub</li>
-            </ul>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="h3"><span lang="ja">仕事の力</span><span lang="en">At work</span></h3>
-            <ul class="chips">
-              <li><span lang="ja">シフト管理</span><span lang="en">Shift scheduling</span></li>
-              <li><span lang="ja">スタッフ指導</span><span lang="en">Training staff</span></li>
-              <li><span lang="ja">接客</span><span lang="en">Customer service</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 制作実績 / WORK ===================== -->
-    <section class="section" id="work">
-      <div class="wrap">
-        <h2 class="h2"><span lang="ja">制作実績</span><span lang="en">Selected work</span></h2>
-        <p class="section__intro">
-          <span lang="ja">すべて個人で企画・制作し、GitHubで公開しています。</span>
-          <span lang="en">Each one planned, built and published on GitHub by me.</span>
-        </p>
-
-        <div class="work">
-
-          <!-- 一番の作品 (Featured project) -->
-          <article class="project project--feature">
-            <div class="project__art project__art--hospital" aria-hidden="true">
-              <svg viewBox="0 0 120 120"><rect x="46" y="20" width="28" height="80" rx="4"/><rect x="20" y="46" width="80" height="28" rx="4"/></svg>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title"><span lang="ja">病院向けWebサイト</span><span lang="en">Hospital website</span></h3>
-              <p lang="ja">日本の病院を想定したWebサイト。診療科や受付時間など、患者さんが必要な情報にすぐたどり着けるよう構成しました。</p>
-              <p lang="en">A website for a Japanese hospital, organised so patients reach departments and visiting hours quickly.</p>
-              <ul class="tags"><li>TypeScript</li><li>HTML</li><li>CSS</li></ul>
-              <div class="project__links">
-                <a href="https://github.com/sayemahmed8820-bot/hospital-jp" target="_blank" rel="noopener">
-                  <span lang="ja">コードを見る</span><span lang="en">View code</span>
-                </a>
-                <!-- 公開URLがあれば: <a href="https://...">デモ</a> -->
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project__art project__art--cafe" aria-hidden="true">
-              <svg viewBox="0 0 120 120"><path d="M28 44h54v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z"/><path d="M82 52h6a10 10 0 0 1 0 20h-6" fill="none" stroke-width="7"/></svg>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title"><span lang="ja">カフェのセルフレジ</span><span lang="en">Café self-checkout</span></h3>
-              <p lang="ja">コーヒーショップ向けのセルフチェックアウトシステム。メニュー選択から会計までを画面上で完結させます。</p>
-              <p lang="en">A self-checkout system for a coffee shop, from choosing a drink to paying, all on screen.</p>
-              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-              <div class="project__links">
-                <a href="https://github.com/sayemahmed8820-bot/my-cafe" target="_blank" rel="noopener">
-                  <span lang="ja">コードを見る</span><span lang="en">View code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project__art project__art--school" aria-hidden="true">
-              <svg viewBox="0 0 120 120"><circle cx="60" cy="40" r="11"/><circle cx="84" cy="57" r="11"/><circle cx="75" cy="85" r="11"/><circle cx="45" cy="85" r="11"/><circle cx="36" cy="57" r="11"/></svg>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title"><span lang="ja">日本語学校のWebサイト</span><span lang="en">Japanese school website</span></h3>
-              <p lang="ja">日本語学校「Sakura Japanese Institute」のWebサイト。コース案内と入学の流れを分かりやすくまとめました。</p>
-              <p lang="en">A site for “Sakura Japanese Institute”, laying out its courses and how to enrol.</p>
-              <ul class="tags"><li>HTML</li><li>CSS</li></ul>
-              <div class="project__links">
-                <a href="https://github.com/sayemahmed8820-bot/sakura-japanese-institute" target="_blank" rel="noopener">
-                  <span lang="ja">コードを見る</span><span lang="en">View code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project__art project__art--sweets" aria-hidden="true">
-              <svg viewBox="0 0 120 120"><circle cx="60" cy="62" r="30"/><circle cx="60" cy="62" r="12" class="hole"/></svg>
-            </div>
-            <div class="project__body">
-              <h3 class="project__title"><span lang="ja">スイーツ店のWebサイト</span><span lang="en">Sweet shop website</span></h3>
-              <p lang="ja">スイーツ店「Mitha Khur」の紹介サイト。商品の魅力が伝わるレイアウトを意識しました。</p>
-              <p lang="en">A site for the sweet shop “Mitha Khur”, designed to make the products look their best.</p>
-              <ul class="tags"><li>HTML</li><li>CSS</li></ul>
-              <div class="project__links">
-                <a href="https://github.com/sayemahmed8820-bot/mitha-khur-website" target="_blank" rel="noopener">
-                  <span lang="ja">コードを見る</span><span lang="en">View code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <a class="more" href="https://github.com/sayemahmed8820-bot?tab=repositories" target="_blank" rel="noopener">
-          <span lang="ja">GitHubですべてのリポジトリを見る</span><span lang="en">All repositories on GitHub</span>
+    <!-- ===================== ナビゲーション / NAVIGATION ===================== -->
+    <header class="nav" id="nav">
+        <a class="nav__logo" href="#top" aria-label="Home">
+            <span class="nav__mark">サ</span>
+            <span class="nav__name">Ahmed Sayem</span>
         </a>
-      </div>
-    </section>
 
-    <!-- ===================== 経歴 / HISTORY ===================== -->
-    <section class="section section--tint" id="history">
-      <div class="wrap">
-        <h2 class="h2"><span lang="ja">経歴</span><span lang="en">History</span></h2>
+        <nav class="nav__links" id="navLinks" aria-label="Main">
+            <a href="#about"><span lang="ja">自己紹介</span><span lang="en">About</span></a>
+            <a href="#skills"><span lang="ja">スキル</span><span lang="en">Skills</span></a>
+            <a href="#work"><span lang="ja">制作実績</span><span lang="en">Work</span></a>
+            <a href="#history"><span lang="ja">経歴</span><span lang="en">History</span></a>
+            <a href="#contact"><span lang="ja">連絡先</span><span lang="en">Contact</span></a>
+        </nav>
 
-        <ol class="timeline">
-          <li class="timeline__item timeline__item--now">
-            <time>2024 —</time>
-            <div>
-              <h3 class="h3"><span lang="ja">流通科学大学 経済学部 経済情報学科 システムコース</span><span lang="en">University of Marketing and Distribution Sciences — Economic Informatics, Systems Course</span></h3>
-              <p><span lang="ja">現在3年生。ゼミでC言語・C++を学ぶ。</span><span lang="en">Third year now. C and C++ in my seminar.</span></p>
+        <div class="nav__tools">
+            <button class="tool" id="langBtn" type="button" aria-label="Switch language">
+                <span lang="ja">EN</span><span lang="en">日本語</span>
+            </button>
+            <button class="tool" id="themeBtn" type="button" aria-label="Toggle dark mode">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                </svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.5" />
+                    <path
+                        d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                </svg>
+            </button>
+            <button class="tool nav__menu" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"
+                aria-controls="navLinks">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ===================== ヒーロー / HERO ===================== -->
+        <section class="hero" id="top">
+            <canvas class="hero__petals" id="petals" aria-hidden="true"></canvas>
+
+            <div class="hero__inner">
+                <h1 class="hero__tate" aria-label="アハメド サエム">
+                    <span>アハメド</span><span>サエム</span>
+                </h1>
+
+                <div class="hero__body">
+                    <p class="hero__latin">Ahmed Sayem</p>
+                    <p class="hero__role">
+                        <span lang="ja">Web開発を学ぶ、IT分野志望の大学3年生</span>
+                        <span lang="en">University student building for the web, heading into IT</span>
+                    </p>
+                    <p class="hero__lead">
+                        <span
+                            lang="ja">バングラデシュから日本へ。流通科学大学でC言語・C++を学びながら、HTML・CSS・JavaScriptで実際に使えるWebサイトを作っています。</span>
+                        <span lang="en">From Bangladesh to Kobe. I study C and C++ at the University of Marketing and
+                            Distribution Sciences, and build real websites with HTML, CSS and JavaScript.</span>
+                    </p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="assets/cv/Ahmed_Sayem_%E5%B1%A5%E6%AD%B4.docx" download>
+                            <span lang="ja">履歴書をダウンロード</span><span lang="en">Download CV</span>
+                        </a>
+                        <a class="btn btn--ghost" href="#work">
+                            <span lang="ja">制作実績を見る</span><span lang="en">See my work</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </li>
-          <li class="timeline__item timeline__item--now">
-            <time>2024 —</time>
-            <div>
-              <h3 class="h3"><span lang="ja">ローソン／セブンイレブン　リーダー</span><span lang="en">Lawson / 7-Eleven — Shift leader</span></h3>
-              <p><span lang="ja">シフト管理、スタッフ指導、接客を担当。</span><span lang="en">Scheduling, training staff, serving customers.</span></p>
-            </div>
-          </li>
-          <li class="timeline__item">
-            <time>2023 – 2024</time>
-            <div>
-              <h3 class="h3"><span lang="ja">すき家　ホールスタッフ</span><span lang="en">Sukiya — Floor staff</span></h3>
-            </div>
-          </li>
-          <li class="timeline__item">
-            <time>2022 – 2024</time>
-            <div>
-              <h3 class="h3"><span lang="ja">神戸国際言語学院　日本語課程 修了</span><span lang="en">Kobe International Language School — Japanese course</span></h3>
-              <p><span lang="ja">JLPT N2 取得。</span><span lang="en">Passed JLPT N2.</span></p>
-            </div>
-          </li>
-          <li class="timeline__item">
-            <time>2018 – 2022</time>
-            <div>
-              <h3 class="h3">Narayanganj Model College</h3>
-              <p><span lang="ja">バングラデシュ</span><span lang="en">Bangladesh</span></p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+        </section>
 
-    <!-- ===================== 連絡先 / CONTACT ===================== -->
-    <section class="contact" id="contact">
-      <div class="wrap contact__inner">
-        <h2 class="contact__title">
-          <span lang="ja">一緒に働ける機会を<br>探しています。</span>
-          <span lang="en">I’m looking for<br>a team to join.</span>
-        </h2>
-        <p class="contact__text">
-          <span lang="ja">インターン・就職のご連絡はメールでお気軽にどうぞ。</span>
-          <span lang="en">For internships or full-time roles, email me any time.</span>
-        </p>
-        <a class="contact__mail" href="mailto:sayemahmed8820@gmail.com">sayemahmed8820@gmail.com</a>
-        <ul class="contact__links">
-          <li><a href="https://github.com/sayemahmed8820-bot" target="_blank" rel="noopener">GitHub</a></li>
-          <!-- LinkedIn があれば: <li><a href="https://linkedin.com/in/...">LinkedIn</a></li> -->
-        </ul>
-      </div>
-    </section>
+        <!-- ===================== 自己紹介 / ABOUT ===================== -->
+        <section class="section" id="about">
+            <div class="wrap about">
+                <figure class="about__photo">
+                    <!-- 写真: assets/images/profile.jpg に置いてください -->
+                    <img src="assets/images/WhatsApp%20Image%202026-10-02%20at%2003.20.18%20(1).jpeg" alt="Ahmed Sayem" width="480" height="600"
+                        onerror="this.remove()">
+                    <span class="about__initials" aria-hidden="true">AS</span>
+                </figure>
 
-  </main>
+                <div class="about__text">
+                    <h2 class="h2">
+                        <span lang="ja">自己紹介</span><span lang="en">About me</span>
+                    </h2>
 
-  <footer class="footer">
-    <p>© <span id="year">2026</span> Ahmed Sayem</p>
-  </footer>
+                    <div lang="ja">
+                        <p>流通科学大学 経済学部 経済情報学科 システムコースの3年生です。ゼミではVisual
+                            Studioを使ったC言語・C++のプログラミングを学び、Web開発（HTML・CSS・JavaScript）は独学で続けています。</p>
+                        <p>神戸国際言語学院で2年間日本語を学び、JLPT N2を取得しました。現在はコンビニでリーダーとして、シフト管理やスタッフ指導も担当しています。</p>
+                        <p>プログラミングの基礎、日本語力、そしてチームをまとめる責任感を活かして、IT分野で貢献したいと考えています。</p>
+                    </div>
+                    <div lang="en">
+                        <p>I’m a third-year student in the Systems Course of the Department of Economic Informatics at
+                            the University of Marketing and Distribution Sciences. In my seminar I program in C and C++
+                            with Visual Studio, and I teach myself web development on the side.</p>
+                        <p>I studied Japanese for two years at Kobe International Language School and passed JLPT N2. I
+                            now work as a shift leader at a convenience store, handling scheduling and training new
+                            staff.</p>
+                        <p>I want to bring my programming foundation, my Japanese, and the responsibility I’ve learned
+                            as a leader to a team in IT.</p>
+                    </div>
 
-  <script src="script.js"></script>
+                    <dl class="facts">
+                        <div>
+                            <dt><span lang="ja">日本語</span><span lang="en">Japanese</span></dt>
+                            <dd>JLPT N2</dd>
+                        </div>
+                        <div>
+                            <dt><span lang="ja">英語</span><span lang="en">English</span></dt>
+                            <dd>TOEIC 620</dd>
+                        </div>
+                        <div>
+                            <dt><span lang="ja">母語</span><span lang="en">Native</span></dt>
+                            <dd><span lang="ja">ベンガル語</span><span lang="en">Bengali</span></dd>
+                        </div>
+                        <div>
+                            <dt><span lang="ja">拠点</span><span lang="en">Based in</span></dt>
+                            <dd><span lang="ja">兵庫県</span><span lang="en">Hyogo, Japan</span></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== スキル / SKILLS ===================== -->
+        <section class="section section--tint" id="skills">
+            <div class="wrap">
+                <h2 class="h2"><span lang="ja">スキル</span><span lang="en">Skills</span></h2>
+
+                <div class="skills">
+                    <div class="skills__group">
+                        <h3 class="h3"><span lang="ja">Web開発</span><span lang="en">Web</span></h3>
+                        <ul class="chips">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript <small lang="ja">学習中</small><small lang="en">learning</small></li>
+                            <li>TypeScript <small lang="ja">学習中</small><small lang="en">learning</small></li>
+                            <li><span lang="ja">レスポンシブデザイン</span><span lang="en">Responsive design</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="skills__group">
+                        <h3 class="h3"><span lang="ja">プログラミング</span><span lang="en">Programming</span></h3>
+                        <ul class="chips">
+                            <li><span lang="ja">C言語</span><span lang="en">C</span></li>
+                            <li>C++</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills__group">
+                        <h3 class="h3"><span lang="ja">ツール</span><span lang="en">Tools</span></h3>
+                        <ul class="chips">
+                            <li>Visual Studio</li>
+                            <li>VS Code</li>
+                            <li>Git / GitHub</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills__group">
+                        <h3 class="h3"><span lang="ja">仕事の力</span><span lang="en">At work</span></h3>
+                        <ul class="chips">
+                            <li><span lang="ja">シフト管理</span><span lang="en">Shift scheduling</span></li>
+                            <li><span lang="ja">スタッフ指導</span><span lang="en">Training staff</span></li>
+                            <li><span lang="ja">接客</span><span lang="en">Customer service</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== 制作実績 / WORK ===================== -->
+        <section class="section" id="work">
+            <div class="wrap">
+                <h2 class="h2"><span lang="ja">制作実績</span><span lang="en">Selected work</span></h2>
+                <p class="section__intro">
+                    <span lang="ja">すべて個人で企画・制作し、GitHubで公開しています。</span>
+                    <span lang="en">Each one planned, built and published on GitHub by me.</span>
+                </p>
+
+                <div class="work">
+
+                    <!-- 一番の作品 (Featured project) -->
+                    <article class="project project--feature">
+                        <div class="project__art project__art--hospital" aria-hidden="true">
+                            <svg viewBox="0 0 120 120">
+                                <rect x="46" y="20" width="28" height="80" rx="4" />
+                                <rect x="20" y="46" width="80" height="28" rx="4" />
+                            </svg>
+                        </div>
+                        <div class="project__body">
+                            <h3 class="project__title"><span lang="ja">病院向けWebサイト</span><span lang="en">Hospital
+                                    website</span></h3>
+                            <p lang="ja">日本の病院を想定したWebサイト。診療科や受付時間など、患者さんが必要な情報にすぐたどり着けるよう構成しました。</p>
+                            <p lang="en">A website for a Japanese hospital, organised so patients reach departments and
+                                visiting hours quickly.</p>
+                            <ul class="tags">
+                                <li>TypeScript</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                            <div class="project__links">
+                                <a href="https://github.com/sayemahmed-jp/hospital-jp" target="_blank"
+                                    rel="noopener">
+                                    <span lang="ja">コードを見る</span><span lang="en">View code</span>
+                                </a>
+                                <!-- 公開URLがあれば: <a href="https://...">デモ</a> -->
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project__art project__art--cafe" aria-hidden="true">
+                            <svg viewBox="0 0 120 120">
+                                <path d="M28 44h54v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z" />
+                                <path d="M82 52h6a10 10 0 0 1 0 20h-6" fill="none" stroke-width="7" />
+                            </svg>
+                        </div>
+                        <div class="project__body">
+                            <h3 class="project__title"><span lang="ja">カフェのセルフレジ</span><span lang="en">Café
+                                    self-checkout</span></h3>
+                            <p lang="ja">コーヒーショップ向けのセルフチェックアウトシステム。メニュー選択から会計までを画面上で完結させます。</p>
+                            <p lang="en">A self-checkout system for a coffee shop, from choosing a drink to paying, all
+                                on screen.</p>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project__links">
+                                <a href="https://github.com/sayemahmed-jp/my-cafe" target="_blank" rel="noopener">
+                                    <span lang="ja">コードを見る</span><span lang="en">View code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project__art project__art--school" aria-hidden="true">
+                            <svg viewBox="0 0 120 120">
+                                <circle cx="60" cy="40" r="11" />
+                                <circle cx="84" cy="57" r="11" />
+                                <circle cx="75" cy="85" r="11" />
+                                <circle cx="45" cy="85" r="11" />
+                                <circle cx="36" cy="57" r="11" />
+                            </svg>
+                        </div>
+                        <div class="project__body">
+                            <h3 class="project__title"><span lang="ja">日本語学校のWebサイト</span><span lang="en">Japanese
+                                    school website</span></h3>
+                            <p lang="ja">日本語学校「Sakura Japanese Institute」のWebサイト。コース案内と入学の流れを分かりやすくまとめました。</p>
+                            <p lang="en">A site for “Sakura Japanese Institute”, laying out its courses and how to
+                                enrol.</p>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                            <div class="project__links">
+                                <a href="https://github.com/sayemahmed-jp/sakura-japanese-institute"
+                                    target="_blank" rel="noopener">
+                                    <span lang="ja">コードを見る</span><span lang="en">View code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project__art project__art--sweets" aria-hidden="true">
+                            <svg viewBox="0 0 120 120">
+                                <circle cx="60" cy="62" r="30" />
+                                <circle cx="60" cy="62" r="12" class="hole" />
+                            </svg>
+                        </div>
+                        <div class="project__body">
+                            <h3 class="project__title"><span lang="ja">スイーツ店のWebサイト</span><span lang="en">Sweet shop
+                                    website</span></h3>
+                            <p lang="ja">スイーツ店「Mitha Khur」の紹介サイト。商品の魅力が伝わるレイアウトを意識しました。</p>
+                            <p lang="en">A site for the sweet shop “Mitha Khur”, designed to make the products look
+                                their best.</p>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                            <div class="project__links">
+                                <a href="https://github.com/sayemahmed-jp/mitha-khur-website" target="_blank"
+                                    rel="noopener">
+                                    <span lang="ja">コードを見る</span><span lang="en">View code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <a class="more" href="https://github.com/sayemahmed-jp?tab=repositories" target="_blank"
+                    rel="noopener">
+                    <span lang="ja">GitHubですべてのリポジトリを見る</span><span lang="en">All repositories on GitHub</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===================== 経歴 / HISTORY ===================== -->
+        <section class="section section--tint" id="history">
+            <div class="wrap">
+                <h2 class="h2"><span lang="ja">経歴</span><span lang="en">History</span></h2>
+
+                <ol class="timeline">
+                    <li class="timeline__item timeline__item--now">
+                        <time>2024 —</time>
+                        <div>
+                            <h3 class="h3"><span lang="ja">流通科学大学 経済学部 経済情報学科 システムコース</span><span lang="en">University
+                                    of Marketing and Distribution Sciences — Economic Informatics, Systems Course</span>
+                            </h3>
+                            <p><span lang="ja">現在3年生。ゼミでC言語・C++を学ぶ。</span><span lang="en">Third year now. C and C++ in
+                                    my seminar.</span></p>
+                        </div>
+                    </li>
+                    <li class="timeline__item timeline__item--now">
+                        <time>2024 —</time>
+                        <div>
+                            <h3 class="h3"><span lang="ja">ローソン／セブンイレブン　リーダー</span><span lang="en">Lawson / 7-Eleven —
+                                    Shift leader</span></h3>
+                            <p><span lang="ja">シフト管理、スタッフ指導、接客を担当。</span><span lang="en">Scheduling, training staff,
+                                    serving customers.</span></p>
+                        </div>
+                    </li>
+                    <li class="timeline__item">
+                        <time>2023 – 2024</time>
+                        <div>
+                            <h3 class="h3"><span lang="ja">すき家　ホールスタッフ</span><span lang="en">Sukiya — Floor staff</span>
+                            </h3>
+                        </div>
+                    </li>
+                    <li class="timeline__item">
+                        <time>2022 – 2024</time>
+                        <div>
+                            <h3 class="h3"><span lang="ja">神戸国際言語学院　日本語課程 修了</span><span lang="en">Kobe International
+                                    Language School — Japanese course</span></h3>
+                            <p><span lang="ja">JLPT N2 取得。</span><span lang="en">Passed JLPT N2.</span></p>
+                        </div>
+                    </li>
+                    <li class="timeline__item">
+                        <time>2018 – 2022</time>
+                        <div>
+                            <h3 class="h3">Narayanganj Model College</h3>
+                            <p><span lang="ja">バングラデシュ</span><span lang="en">Bangladesh</span></p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===================== 連絡先 / CONTACT ===================== -->
+        <section class="contact" id="contact">
+            <div class="wrap contact__inner">
+                <h2 class="contact__title">
+                    <span lang="ja">一緒に働ける機会を<br>探しています。</span>
+                    <span lang="en">I’m looking for<br>a team to join.</span>
+                </h2>
+                <p class="contact__text">
+                    <span lang="ja">インターン・就職のご連絡はメールでお気軽にどうぞ。</span>
+                    <span lang="en">For internships or full-time roles, email me any time.</span>
+                </p>
+                <a class="contact__mail" href="mailto:sayemahmed8820@gmail.com">sayemahmed8820@gmail.com</a>
+                <ul class="contact__links">
+                    <li><a href="https://github.com/sayemahmed-jp" target="_blank" rel="noopener">GitHub</a></li>
+                    <!-- LinkedIn があれば: <li><a href="https://linkedin.com/in/...">LinkedIn</a></li> -->
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© <span id="year">2026</span> Ahmed Sayem</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
